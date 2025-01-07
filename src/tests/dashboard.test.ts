@@ -2,6 +2,7 @@ import { fixture, Selector, t, t as testcafe  } from "testcafe";
 import  LoginPage  from '../pages/loginPage';
 import  DashboardPage  from '../pages/dashboardPage';
 import { selectByTag, selectByClassName } from "../utils/selectors";
+import { config } from "../config";
 
 
 
@@ -9,8 +10,8 @@ const loginPage = new LoginPage();
 const dashboardPage = new DashboardPage();
 
 fixture`OrangeHRM Dashboard Tests`
-    .page`https://opensource-demo.orangehrmlive.com/web/index.php/auth/login`
-    .beforeEach(async t => {
+    .page(config.baseUrl)
+    .beforeEach(async testcafe => {
         await loginPage.loginToApp('admin', 'admin123');
     });
 
