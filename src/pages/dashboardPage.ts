@@ -3,7 +3,7 @@ import { selectByAttribute, selectByClassName, selectByTag, selectByTestId, sele
 
  class DashboardPage {
     clickAdminMenu = async () => {
-        const adminMenu = selectByText('Admin');
+        const adminMenu = selectByTag('span').withText('Admin');
         await testcafe.click(adminMenu);
     };
 

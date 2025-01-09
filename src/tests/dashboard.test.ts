@@ -15,7 +15,7 @@ fixture`OrangeHRM Dashboard Tests`
         await loginPage.loginToApp('admin', 'admin123');
     });
 
-test('Verify visibility, hover, and click functionality of all menu items', async t => {
+test('Verify visibility, hover, and click functionality of all menu items', async testcafe => {
     const menuItems = [
         'Admin',
         'PIM',
