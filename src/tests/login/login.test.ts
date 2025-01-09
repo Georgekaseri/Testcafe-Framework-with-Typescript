@@ -1,7 +1,7 @@
 import { fixture, Selector, t, t as testcafe  } from "testcafe";
-import  LoginPage  from "../pages/loginPage";
-import  NavbarPage from '../pages/navbarPage';
-import { config } from "../config";
+import LoginPage from "../../pages/login/loginPage";
+import NavbarPage from "../../pages/login/navbarPage";
+import { config } from "../../config";
 
 const loginPage = new LoginPage
 const navbarPage = new NavbarPage

@@ -1,8 +1,8 @@
 import { Selector, t as testcafe } from "testcafe";
-import { selectByClassName, selectByTag } from "../../utils/selectors";
+
 
 class AdminTabPage {
-    navSelector = Selector('nav.oxd-topbar-body-nav'); // Corrected Selector to use `Selector` for proper navigation targeting
+    navSelector = Selector('nav.oxd-topbar-body-nav'); 
 
     verifyMenuItems = async (menuItems: string[]) => {
         for (const menuName of menuItems) {
@@ -25,11 +25,9 @@ class AdminTabPage {
             // Hover and click the menu item
             await testcafe.hover(menuSelector);
             await testcafe.click(menuSelector);
-
-            console.log(`Successfully interacted with "${menuName}"`);
+            // console.log(`Successfully interacted with "${menuName}"`);
         }
     };
 }
 
 export default AdminTabPage;
-
