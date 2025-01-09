@@ -4,10 +4,10 @@ name: TestCafe CI/CD
 on:
   push:
     branches:
-      - feature-dashboard
+      - feature-adminpage
   pull_request:
     branches:
-      - feature-dashboard
+      - feature-adminpage
 
 jobs:
   test:
