@@ -1,5 +1,5 @@
 import { t, t as testcafe } from 'testcafe';
-import { selectByAttribute, selectByClassName, selectByTag, selectByTestId } from '../utils/selectors';
+import { selectByTag,selectByAttribute } from '../../utils/selectors';
 
 
  class LoginPage {

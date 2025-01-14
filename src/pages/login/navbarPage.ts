@@ -1,5 +1,5 @@
 import { t, t as testcafe } from 'testcafe';
-import { selectByAttribute, selectByClassName, selectByTag, selectByTestId, selectByText } from '../utils/selectors';
+import { selectByClassName, selectByText } from '../../utils/selectors';
 
  class NavbarPage {
 
