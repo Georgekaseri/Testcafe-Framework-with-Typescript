@@ -77,7 +77,6 @@ import { selectByAttribute, selectByClassName, selectByTag, selectByTestId, sele
         .find('a.oxd-main-menu-item') // Locate the <a> tag
         .withText(tabMenu); // Match the text for the menu item
     
-
         // Check if the tab menu exists
         if (!(await tabMenuSelector.exists)) {
             console.error(`"${tabMenu}" menu item does not exist.`);
