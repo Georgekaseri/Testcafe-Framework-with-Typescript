@@ -1,9 +1,9 @@
-import { t, t as testcafe } from 'testcafe';
-import { selectByAttribute, selectByClassName, selectByTag, selectByTestId, selectByText } from '../utils/selectors';
+import { Selector, t, test, t as testcafe } from 'testcafe';
+import { selectByAttribute, selectByClassName, selectByTag, selectByTestId, selectByText } from '../../utils/selectors';
 
  class DashboardPage {
     clickAdminMenu = async () => {
-        const adminMenu = selectByText('Admin');
+        const adminMenu = selectByTag('span').withText('Admin');
         await testcafe.click(adminMenu);
     };
 
@@ -66,5 +66,35 @@ import { selectByAttribute, selectByClassName, selectByTag, selectByTestId, sele
         const menu = selectByText(menuName);
         await testcafe.click(menu);
     };
+
+    tabSelector = Selector('.oxd-main-menu');
+
+    verifyTabItems = async (tabMenus: string[]) => {
+    for (const tabMenu of tabMenus) {
+        // Adjust selector based on the HTML structure
+        const tabMenuSelector = this.tabSelector
+        .find('li')
+        .find('a.oxd-main-menu-item') // Locate the <a> tag
+        .withText(tabMenu); // Match the text for the menu item
+    
+
+        // Check if the tab menu exists
+        if (!(await tabMenuSelector.exists)) {
+            console.error(`"${tabMenu}" menu item does not exist.`);
+            continue;
+        }
+
+        // Wait for the menu to become visible
+        await testcafe
+            .expect(tabMenuSelector.visible)
+            .ok(`"${tabMenu}" menu item is not visible.`, { timeout: 5000 });
+
+        // Hover and click the tab menu
+        await testcafe.hover(tabMenuSelector);
+        await testcafe.click(tabMenuSelector);
+
+        // console.log(`Successfully interacted with "${tabMenu}"`);
+    }
+};    
 }
 export default DashboardPage;
